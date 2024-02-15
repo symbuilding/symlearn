@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CalenderEvents from "./CalenderEvents";
 import { useQuery } from "@tanstack/react-query";
-import Lecture from "./Lecture";
+import ls from "./timepass.svg";
 
 const fetchQuizes = async (date: string) => {
     const res = await fetch(
@@ -11,13 +11,11 @@ const fetchQuizes = async (date: string) => {
     return res.json();
 };
 
-const fetchLectures = async (date: string) => {
-    const res = await fetch(
-        "http://localhost:4000/timetable/date-wise/" + date
-    );
+const fetchCourses = async () => {
+    const res = await fetch("http://localhost:4000/timetable/courses");
 
     return res.json();
-};
+}
 
 export default function Home() {
     const [currentDate, setCurrentDate] = useState<string>(
@@ -31,15 +29,16 @@ export default function Home() {
         queryKey: ["Quizes" + currentDate],
     });
 
-    const lecturesData = useQuery({
-        queryFn: () => fetchLectures(currentDate),
+    const coursesData = useQuery({
+        queryFn: () => fetchCourses(),
         staleTime: 1000 * 60 * 60,
         gcTime: 1000 * 60 * 60,
-        queryKey: ["Lectures" + currentDate],
+        queryKey: ["all-courses"],
     });
 
     return (
         <div className="home-container">
+            <img src={ls} />
             <div className="heading-container">
                 <h1>Good morning Sohammaro...</h1>
                 <div className="search-noti-container">
@@ -55,25 +54,12 @@ export default function Home() {
                         {quizData.isSuccess && JSON.stringify(quizData.data)}
                     </div>
                 </div>
-                <div className="classes-container">
-                    <h1>Classes</h1>
-                    {lecturesData.isSuccess &&
-                        lecturesData?.data?.lectures?.map(
-                            (lecture: {
-                                _id: string;
-                                courseName: string;
-                                room: string;
-                                time: string;
-                                date: string;
-                            }) => {
-                                return (
-                                    <Lecture key={lecture._id} {...lecture} />
-                                );
-                            }
-                        )}
+                <div className="courses-container">
+                    <h1>Courses</h1>
+                    {coursesData.isSuccess && JSON.stringify(coursesData.data)}
                 </div>
             </div>
-            <CalenderEvents /*setCurrentDate={setCurrentDate}*/ />
+            <CalenderEvents currentDate={currentDate} setCurrentDate={setCurrentDate}/>
         </div>
     );
 }

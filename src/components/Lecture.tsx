@@ -12,10 +12,10 @@ export default function Lecture({
     return (
         <>
             <ul>
-                <li>{courseName}</li>
-                <li>{date}</li>
-                <li>{time}</li>
-                <li>{room}</li>
+                <li>Course name: {courseName}</li>
+                <li>Date: {date}</li>
+                <li>Time: {time}</li>
+                <li>Room: {room}</li>
             </ul>
         </>
     );
