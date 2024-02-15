@@ -1,5 +1,4 @@
 import Routing from "./Routing";
-import CalenderEvents from "./components/CalenderEvents";
 import Navpane from "./components/Navpane";
 
 export default function App() {
@@ -8,7 +7,6 @@ export default function App() {
             <div id="app-container">
                 <Navpane />
                 <Routing />
-                <CalenderEvents />
             </div>
         </>
     );

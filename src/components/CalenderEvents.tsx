@@ -1,7 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
-import Lecture from "./Lecture";
-
+/*
 const fetchLectures = async (date: string) => {
     const res = await fetch(
         "http://localhost:4000/timetable/date-wise/" + date
@@ -9,8 +6,18 @@ const fetchLectures = async (date: string) => {
 
     return res.json();
 };
+*/
+
+function getDate(): string {
+    const date = new Date();
+    const weekday = new Intl.DateTimeFormat('en', { weekday: 'short' }).format(date);
+    const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
+    const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+    return (`${day} ${month}, ${weekday}`);
+}
 
 export default function CalenderEvents() {
+    /*
     const [dateSelected, setDateSelected] = useState<string>(
         new Date().toISOString().slice(0, 10)
     );
@@ -22,23 +29,12 @@ export default function CalenderEvents() {
         gcTime: 1000 * 60 * 60,
         queryKey: [dateSelected],
     });
+    */
 
-    return (
-        <div className="calender-container">
-            <input
-                type="date"
-                name="date-picker"
-                value={dateSelected}
-                onChange={(e) => {
-                    setDateSelected(e.target.value);
-                }}
-            ></input>
-
-            <h1>Today's Lectures</h1>
-            {JSON.stringify(lecturesData.data)}
-            {lecturesData.isSuccess && lecturesData.data.lectures.map((lecture: {_id: string, courseName: string, date: string, time: string, room: string})=> {
-                return <Lecture key={lecture._id} {...lecture}/>
-            })}
+    return <div className="calender-container">
+        <div className="current-date-container">
+        {/*TODO::- add calendar icon here*/}
+            {getDate()}
         </div>
-    );
+    </div>;
 }
