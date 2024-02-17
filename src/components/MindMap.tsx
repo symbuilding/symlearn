@@ -10,6 +10,9 @@ import ReactFlow, {
 import "reactflow/dist/style.css";
 import "./MindMap.css";
 
+import './textupdater.css';
+import TextUpdaterNode from "./TextUpdater";
+
 const initialNodes = [
     {
         id: "1",
@@ -23,23 +26,26 @@ const onLoad = (reactFlowInstance) => {
     reactFlowInstance.fitView();
 };
 
+const nodeTypes = { textUpdater: TextUpdaterNode };
+
 export default function MindMap() {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const [name, setName] = useState("");
-    const [deleteMode, setDeleteMode] = useState<boolean>(false);
 
-    const addNode = () => {
+    const addNode = (x: number, y: number) => {
         setNodes((e) =>
             e.concat({
                 id: (e.length + 1).toString(),
-                data: { label: `${name}` },
+                data: { label: name === "" ? "Empty" : name },
                 position: {
-                    x: Math.random() * window.innerWidth,
-                    y: Math.random() * window.innerHeight,
+                    x,
+                    y,
                 },
             })
         );
+
+        setName("");
     };
 
     const onConnect = useCallback(
@@ -49,13 +55,32 @@ export default function MindMap() {
 
     return (
         <div id="container">
+            <div>
+                <input
+                    type="text"
+                    onChange={(e) => setName(e.target.value)}
+                    name="title"
+                    value={name}
+                    placeholder="Enter node title"
+                />
+            </div>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
-                onNodesChange={onNodesChange}
+                onNodesChange={(e) => {
+                    onNodesChange(e);
+                }}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
                 onLoad={onLoad}
+                onNodeClick={(node_event) => {
+                    node_event.target.remove();
+                }}
+                onDoubleClick={(e) => {
+                    addNode(e.clientX, e.clientY);
+                }}
+                zoomOnDoubleClick={false}
+                nodeTypes={nodeTypes}
             >
                 <Controls />
 
@@ -67,16 +92,6 @@ export default function MindMap() {
                     }}
                 />
             </ReactFlow>
-            <div>
-                <input
-                    type="text"
-                    onChange={(e) => setName(e.target.value)}
-                    name="title"
-                />
-                <button type="button" onClick={addNode}>
-                    Add Node
-                </button>
-            </div>
         </div>
     );
 }
