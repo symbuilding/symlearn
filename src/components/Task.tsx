@@ -13,7 +13,6 @@ function getDate(dateStr: string): string {
 }
 
 export default function Tasks({data}){
-    console.log(data)
     return <>
         <div className='task-container'>
             <div className={'circle '+ (Math.random() > 0.5 ? "hara" : "")}></div>

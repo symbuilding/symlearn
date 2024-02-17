@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CalenderEvents from "./CalenderEvents";
 import Task from "./Task.tsx";
+import CourseCard from "./CourseCard.tsx";
 import { useQuery } from "@tanstack/react-query";
 import "./Home.css";
 
@@ -50,17 +51,15 @@ export default function Home() {
                     <div className="event-container">
                         <div className="assignment-test-container">
                             <h1>Assignment and Test</h1>
-                            {
-                                quizData.isSuccess && quizData?.data.quizes.map(quiz => {
-                                     return <Task data={quiz}></Task>
-                                })
-                            }
+                            {quizData.isSuccess &&
+                                quizData?.data.quizes.map((quiz) => {
+                                    return <Task key={quiz._id} data={quiz}></Task>;
+                                })}
                         </div>
-                        <div className="courses-container">
-                            <h1>Courses</h1>
-                            {coursesData.isSuccess &&
-                                JSON.stringify(coursesData.data)}
-                        </div>
+                        {coursesData.isSuccess &&
+                            coursesData?.data.courses.map((course) => {
+                                return <CourseCard key={course._id} data={course}></CourseCard>;
+                            })}
                     </div>
                     <CalenderEvents
                         currentDate={currentDate}
