@@ -1,0 +1,7 @@
+.pfp{
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    border-radius: 26px;
+    background: url(./svgs/home.svg), lightgray 50% / cover no-repeat;
+}

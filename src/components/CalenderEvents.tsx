@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import Lecture from "./Lecture";
-
+import './CalenderEvents.css'
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import RightPaneTop from "./RightpaneTop";
 
 import  dayjs, {Dayjs } from "dayjs";
 
-function getDate(): string {
+ export function getDate(): string {
     const date = new Date();
     const weekday = new Intl.DateTimeFormat("en", { weekday: "short" }).format(
         date
@@ -34,11 +35,9 @@ export default function CalenderEvents({ currentDate, setCurrentDate }) {
     });
 
     return (
+        <>
         <div className="calender-container">
-            <div className="current-date-container">
-                {/*TODO::- add calendar icon here*/}
-                {getDate()}
-            </div>
+            <RightPaneTop></RightPaneTop>
 
             {/*TODO: Add calendar thing here*/}
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -49,8 +48,9 @@ export default function CalenderEvents({ currentDate, setCurrentDate }) {
                     }}
                 />
             </LocalizationProvider>
-
-            <h1>Upcoming classes</h1>
+            <div className="upcoming-text">
+                <span>Upcoming classes</span>
+            </div>
             <div className="upcoming-classes-container">
                 {lecturesData.isSuccess &&
                     lecturesData?.data?.lectures?.map(
@@ -66,5 +66,6 @@ export default function CalenderEvents({ currentDate, setCurrentDate }) {
                     )}
             </div>
         </div>
+        </>
     );
 }

@@ -3,6 +3,10 @@ import Navpane from "./components/Navpane";
 import "./components/globals.css"
 import Home from "./components/Home";
 import ClassesCard from "./components/ClassesCard";
+import RightPane from "./components/RightPane";
+import Date from "./components/Date";
+import RightPaneTop from "./components/RightpaneTop";
+import CalenderEvents from "./components/CalenderEvents";
 
 export default function App() {
     return (
@@ -11,7 +15,14 @@ export default function App() {
                 {/* <Navpane /> */}
                 {/* <Home></Home> */}
                 {/* <Routing /> */}
-                <ClassesCard></ClassesCard>
+                {/* <ClassesCard></ClassesCard> */}
+                {/* <RightPane></RightPane> */}
+                {/* <Date></Date> */}
+                {/* <RightPaneTop></RightPaneTop> */}
+                {/* <RightPane></RightPane> */}
+                <CalenderEvents></CalenderEvents>
+                {/* <Date></Date> */}
+               
             </div>
         </>
     );
