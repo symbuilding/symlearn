@@ -4,6 +4,7 @@ import Task from "./Task.tsx";
 import CourseCard from "./CourseCard.tsx";
 import { useQuery } from "@tanstack/react-query";
 import "./Home.css";
+import ClassesCard from "./ClassesCard";
 
 const fetchQuizes = async () => {
     const res = await fetch("http://localhost:4000/quiz/get");
