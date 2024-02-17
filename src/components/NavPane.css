@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.lay-out{
+    display: flex;
+    width: 218px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 10px;
+    background: var(--white, #FFF);
+
+
+}
+
+.symlearn{
+    color: var(--primary, #1D3557);
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.top-box{
+    display: flex;
+    padding: 10px 3px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+
+    
+}
+
+.top-box-css1{
+    display: flex;
+    padding: 14px 10px;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+    }
+
+.top-box-text{
+    color: var(--primary, #1D3557);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.huh{
+    width: 190px;
+    height: 2px;
+    background: #EFEFEF;
+}
+
+
+.middle-box{
+    display: flex;
+    padding: 10px 3px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+}
+
+
+.bottom-box{
+    display: flex;
+    padding: 10px 3px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.bottom-box-individual{
+    display: flex;
+    padding: 14px 10px;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+}
+
+
+.bottom-box-text{
+    color: var(--primary, #1D3557);
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+.symlearn-box{
+    display: flex;
+    padding: 6px 10px;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+}
