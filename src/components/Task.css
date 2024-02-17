@@ -1,0 +1,7 @@
+.task-container {
+    display: flex;
+    width: 350px;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 10px;
+}

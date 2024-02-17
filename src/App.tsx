@@ -1,6 +1,6 @@
 import Routing from "./Routing";
 import Navpane from "./components/Navpane";
-import "./components/globals.css"
+import "./components/globals.css";
 // import Home from "./components/Home";
 // import ClassesCard from "./components/ClassesCard";
 // import RightPane from "./components/RightPane";
@@ -8,6 +8,9 @@ import "./components/globals.css"
 // import RightPaneTop from "./components/RightpaneTop";
 import CalenderEvents from "./components/CalenderEvents";
 import Form from "./components/Form";
+import Home from "./components/Home";
+import ClassesCard from "./components/ClassesCard";
+import Routing from "./Routing";
 
 export default function App() {
     return (
@@ -16,15 +19,7 @@ export default function App() {
                 <Navpane />
                 {/* <Home></Home> */}
                 <Routing />
-                {/* <ClassesCard></ClassesCard> */}
-                {/* <RightPane></RightPane> */}
-                {/* <Date></Date> */}
-                {/* <RightPaneTop></RightPaneTop> */}
-                {/* <RightPane></RightPane> */}
-                <CalenderEvents></CalenderEvents>
-                {/* <Date></Date> */}
-                {/* <Form></Form> */}
-               
+                <ClassesCard></ClassesCard>
             </div>
         </>
     );
