@@ -5,6 +5,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import RightPaneTop from "./RightpaneTop";
+import ClassesCard from "./ClassesCard";
 
 import  dayjs, {Dayjs } from "dayjs";
 
@@ -48,10 +49,18 @@ export default function CalenderEvents({ currentDate, setCurrentDate }) {
                     }}
                 />
             </LocalizationProvider>
+            <div className="classes-display-box">
+               
             <div className="upcoming-text">
                 <span>Upcoming classes</span>
             </div>
             <div className="upcoming-classes-container">
+                <div className="inner-container">
+            <ClassesCard></ClassesCard>
+            <ClassesCard></ClassesCard>
+            <ClassesCard></ClassesCard>
+            <ClassesCard></ClassesCard>
+                </div>
                 {lecturesData.isSuccess &&
                     lecturesData?.data?.lectures?.map(
                         (lecture: {
@@ -65,6 +74,7 @@ export default function CalenderEvents({ currentDate, setCurrentDate }) {
                         }
                     )}
             </div>
+        </div>
         </div>
         </>
     );

@@ -2,7 +2,7 @@
 
 .calender-container{
     display: flex;
-    width: 300px;
+    /* width: 300px; */
     padding: 10px;
     flex-direction: column;
     align-items: flex-start;
@@ -20,4 +20,26 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+.classes-display-box{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+
+
+.inner-container{
+    display: flex;
+    padding: 10px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
 }
