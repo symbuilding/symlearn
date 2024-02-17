@@ -7,21 +7,23 @@ import "./components/globals.css"
 // import Date from "./components/Date";
 // import RightPaneTop from "./components/RightpaneTop";
 import CalenderEvents from "./components/CalenderEvents";
+import Form from "./components/Form";
 
 export default function App() {
     return (
         <>
             <div id="app-container">
-                <Navpane />
+                {/* <Navpane /> */}
                 {/* <Home></Home> */}
-                <Routing />
+                {/* <Routing /> */}
                 {/* <ClassesCard></ClassesCard> */}
                 {/* <RightPane></RightPane> */}
                 {/* <Date></Date> */}
                 {/* <RightPaneTop></RightPaneTop> */}
                 {/* <RightPane></RightPane> */}
-                <CalenderEvents></CalenderEvents>
+                {/* <CalenderEvents></CalenderEvents> */}
                 {/* <Date></Date> */}
+                <Form></Form>
                
             </div>
         </>
