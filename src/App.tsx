@@ -19,7 +19,6 @@ export default function App() {
                 <Navpane />
                 {/* <Home></Home> */}
                 <Routing />
-                <ClassesCard></ClassesCard>
             </div>
         </>
     );
