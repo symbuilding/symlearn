@@ -2,6 +2,8 @@ import { useState } from "react";
 import CalenderEvents from "./CalenderEvents";
 import { useQuery } from "@tanstack/react-query";
 import ls from "./timepass.svg";
+import './Home.css'
+
 
 const fetchQuizes = async (date: string) => {
     const res = await fetch(
@@ -37,8 +39,12 @@ export default function Home() {
     });
 
     return (
+        <>
+        <div className="middle-box">
+
+        
         <div className="home-container">
-            <img src={ls} />
+            {/* <img src={ls} /> */}
             <div className="heading-container">
                 <h1>Good morning Sohammaro...</h1>
                 <div className="search-noti-container">
@@ -61,5 +67,7 @@ export default function Home() {
             </div>
             <CalenderEvents currentDate={currentDate} setCurrentDate={setCurrentDate}/>
         </div>
+        </div>
+        </>
     );
 }
