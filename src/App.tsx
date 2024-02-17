@@ -1,20 +1,20 @@
-// import Routing from "./Routing";
+import Routing from "./Routing";
 import Navpane from "./components/Navpane";
 import "./components/globals.css"
-import Home from "./components/Home";
-import ClassesCard from "./components/ClassesCard";
-import RightPane from "./components/RightPane";
-import Date from "./components/Date";
-import RightPaneTop from "./components/RightpaneTop";
+// import Home from "./components/Home";
+// import ClassesCard from "./components/ClassesCard";
+// import RightPane from "./components/RightPane";
+// import Date from "./components/Date";
+// import RightPaneTop from "./components/RightpaneTop";
 import CalenderEvents from "./components/CalenderEvents";
 
 export default function App() {
     return (
         <>
             <div id="app-container">
-                {/* <Navpane /> */}
+                <Navpane />
                 {/* <Home></Home> */}
-                {/* <Routing /> */}
+                <Routing />
                 {/* <ClassesCard></ClassesCard> */}
                 {/* <RightPane></RightPane> */}
                 {/* <Date></Date> */}

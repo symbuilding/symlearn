@@ -1,7 +1,7 @@
 .middle-box{
     display: flex;
     padding: 10px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     gap: 10px;
     flex: 1 0 0;
