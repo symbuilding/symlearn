@@ -3,6 +3,7 @@ import Navpane from "./components/Navpane";
 import "./components/globals.css"
 import Home from "./components/Home";
 import ClassesCard from "./components/ClassesCard";
+import Routing from "./Routing";
 
 export default function App() {
     return (
@@ -10,7 +11,7 @@ export default function App() {
             <div id="app-container">
                 {/* <Navpane /> */}
                 {/* <Home></Home> */}
-                {/* <Routing /> */}
+                <Routing />
                 <ClassesCard></ClassesCard>
             </div>
         </>
