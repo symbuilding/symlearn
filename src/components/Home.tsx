@@ -1,10 +1,9 @@
-import { useState } from "react";
-import CalenderEvents from "./CalenderEvents";
 import Task from "./Task.tsx";
 import CourseCard from "./CourseCard.tsx";
 import { useQuery } from "@tanstack/react-query";
 import "./Home.css";
-import ClassesCard from "./ClassesCard";
+import { useNavigate } from "react-router-dom";
+import CalenderEvents from "./CalenderEvents.tsx";
 
 const fetchQuizes = async () => {
     const res = await fetch("http://localhost:4000/quiz/get");
@@ -18,9 +17,12 @@ const fetchCourses = async () => {
 };
 
 export default function Home() {
-    const [currentDate, setCurrentDate] = useState<string>(
-        new Date().toISOString().slice(0, 10)
-    );
+    /* const [currentDate, setCurrentDate] = useState<string>(
+         new Date().toISOString().slice(0, 10)
+     );
+    */
+
+    const navigate = useNavigate();
 
     const quizData = useQuery({
         queryFn: () => fetchQuizes(),
@@ -35,6 +37,10 @@ export default function Home() {
         gcTime: 1000 * 60 * 60,
         queryKey: ["all-courses"],
     });
+
+    const handleQuizOnClick = (quiz) => {
+        navigate("/quiz/" + quiz._id, { state: { quiz } });
+    };
 
     return (
         <>
@@ -55,27 +61,34 @@ export default function Home() {
                             {quizData.isSuccess &&
                                 quizData?.data.quizes.map((quiz) => {
                                     return (
-                                        <Task key={quiz._id} data={quiz}></Task>
+                                        <span
+                                            onClick={() =>
+                                                handleQuizOnClick(quiz)
+                                            }
+                                        >
+                                            <Task
+                                                key={quiz._id}
+                                                data={quiz}
+                                            ></Task>
+                                        </span>
                                     );
                                 })}
                         </div>
-                        {coursesData.isSuccess &&
-                            coursesData?.data.courses.map((course) => {
-                                return (
-                                    <CourseCard
-                                        key={course._id}
-                                        data={course}
-                                    ></CourseCard>
-                                );
-                            })}
+                        <div className="courses-container">
+                            {coursesData.isSuccess &&
+                                coursesData?.data.courses.map((course) => {
+                                    return (
+                                        <CourseCard
+                                            key={course._id}
+                                            {...course}
+                                        ></CourseCard>
+                                    );
+                                })}
+                        </div>
                     </div>
-                    <CalenderEvents
-                        currentDate={currentDate}
-                        setCurrentDate={setCurrentDate}
-                    />
                 </div>
             </div>
-            <ClassesCard></ClassesCard>
+            <CalenderEvents />
         </>
     );
 }

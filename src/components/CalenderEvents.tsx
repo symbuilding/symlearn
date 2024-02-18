@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import Lecture from "./Lecture";
-import './CalenderEvents.css'
+import "./CalenderEvents.css";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import RightPaneTop from "./RightpaneTop";
 import ClassesCard from "./ClassesCard";
 
-import  dayjs, {Dayjs } from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
+import { useState } from "react";
 
- export function getDate(): string {
+export function getDate(): string {
     const date = new Date();
     const weekday = new Intl.DateTimeFormat("en", { weekday: "short" }).format(
         date
@@ -27,7 +28,9 @@ const fetchLectures = async (date: string) => {
     return res.json();
 };
 
-export default function CalenderEvents({ currentDate, setCurrentDate }) {
+export default function CalenderEvents() {
+    const [currentDate, setCurrentDate] = useState<string>("2024-02-19");
+
     const lecturesData = useQuery({
         queryFn: () => fetchLectures(currentDate),
         staleTime: 1000 * 60 * 60,
@@ -37,45 +40,42 @@ export default function CalenderEvents({ currentDate, setCurrentDate }) {
 
     return (
         <>
-        <div className="calender-container">
-            <RightPaneTop></RightPaneTop>
+            <div className="calender-container">
+                <RightPaneTop></RightPaneTop>
 
-            {/*TODO: Add calendar thing here*/}
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateCalendar
-                    value={dayjs(currentDate)}
-                    onChange={(newValue: Dayjs) => {
-                        setCurrentDate(newValue.format("YYYY-MM-DD"));
-                    }}
-                />
-            </LocalizationProvider>
-            <div className="classes-display-box">
-               
-            <div className="upcoming-text">
-                <span>Upcoming classes</span>
-            </div>
-            <div className="upcoming-classes-container">
-                <div className="inner-container">
-            <ClassesCard></ClassesCard>
-            <ClassesCard></ClassesCard>
-            <ClassesCard></ClassesCard>
-            <ClassesCard></ClassesCard>
+                {/*TODO: Add calendar thing here*/}
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DateCalendar
+                        value={dayjs(currentDate)}
+                        onChange={(newValue: Dayjs) => {
+                            setCurrentDate(newValue.format("YYYY-MM-DD"));
+                        }}
+                    />
+                </LocalizationProvider>
+                <div className="classes-display-box">
+                    <div className="upcoming-text">
+                        <span>Upcoming classes</span>
+                    </div>
+                    <div className="upcoming-classes-container">
+                        <div className="inner-container">
+                            {lecturesData.isSuccess &&
+                                lecturesData?.data?.lectures?.map(
+                                    (lecture: {
+                                        _id: string;
+                                        courseName: string;
+                                        room: string;
+                                        time: string;
+                                        date: string;
+                                    }) => {
+                                        return (
+                                            <ClassesCard key={lecture._id} {...lecture}/>
+                                        );
+                                    }
+                                )}
+                        </div>
+                    </div>
                 </div>
-                {lecturesData.isSuccess &&
-                    lecturesData?.data?.lectures?.map(
-                        (lecture: {
-                            _id: string;
-                            courseName: string;
-                            room: string;
-                            time: string;
-                            date: string;
-                        }) => {
-                            return <Lecture key={lecture._id} {...lecture} />;
-                        }
-                    )}
             </div>
-        </div>
-        </div>
         </>
     );
 }
