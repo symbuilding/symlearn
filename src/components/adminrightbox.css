@@ -1,0 +1,10 @@
+.layout{
+    display: flex;
+    padding: 0px 10px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
