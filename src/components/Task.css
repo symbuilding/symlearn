@@ -4,4 +4,68 @@
     padding: 10px;
     align-items: flex-start;
     gap: 10px;
+    border-radius: 5px;
+    background: var(--item-bg, #efefef);
+}
+
+.circle {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 1000px;
+    background: var(--bg, #a8dadc);
+}
+
+.hara {
+    background: var(--green, #6bd425);
+}
+.task-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.task-title {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    align-self: stretch;
+}
+
+.task-name {
+    color: var(--primary, #1d3557);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.task-date {
+    color: var(--text-on-item, #b7b5b5);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.task-subtitle {
+    color: var(--text-on-item, #b7b5b5);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }

@@ -49,10 +49,6 @@ export default function Home() {
                     {/* <img src={ls} /> */}
                     <div className="heading-container">
                         <h1>Good morning Sohammaro...</h1>
-                        <div className="search-noti-container">
-                            <input type="search"></input>
-                            {/* <img src="https://www.svgrepo.com/show/31480/notification-bell.svg"/> */}
-                        </div>
                     </div>
                     <h1>Dashboard</h1>
                     <div className="event-container">
@@ -61,7 +57,7 @@ export default function Home() {
                             {quizData.isSuccess &&
                                 quizData?.data.quizes.map((quiz) => {
                                     return (
-                                        <span
+                                        <span className="hover-clicker"
                                             onClick={() =>
                                                 handleQuizOnClick(quiz)
                                             }
@@ -75,6 +71,7 @@ export default function Home() {
                                 })}
                         </div>
                         <div className="courses-container">
+                            <h1>Courses</h1>
                             {coursesData.isSuccess &&
                                 coursesData?.data.courses.map((course) => {
                                     return (
