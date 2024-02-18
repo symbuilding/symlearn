@@ -1,12 +1,14 @@
+import "./QuizCard.css";
+
 export default function QuizCard({ question, options, answers }) {
     return (
         <>
             <h4>{question}</h4>
             {options?.map((option) => {
                 return (
-                    <div>
+                    <div className="opt">
                         <input type="radio" name="option-button" />
-                        {option}
+                        <span>{option}</span>
                     </div>
                 );
             })}

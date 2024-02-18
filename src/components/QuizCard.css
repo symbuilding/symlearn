@@ -1,0 +1,32 @@
+h4 {
+    align-self: stretch;
+    color: var(--primary, #1d3557);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.opt {
+    display: flex;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 5px;
+    background: var(--item-bg, #efefef);
+}
+
+span {
+    color: var(
+        --important-text-on-item,
+        var(--important-text-on-item, #9f9f9f)
+    );
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

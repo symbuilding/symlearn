@@ -1,0 +1,48 @@
+.quiz-container {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 10px;
+    background: var(--white, #fff);
+}
+
+.quizzz {
+    color: var(--primary, #1d3557);
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.title-container {
+    display: flex;
+    padding: 0px 10px;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.big-container {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.course-name {
+    color: var(--primary, #1d3557);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
