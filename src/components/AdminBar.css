@@ -1,0 +1,49 @@
+.layout{
+    display: flex;
+    width: min-content;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    align-self: stretch;
+}
+
+.save{
+    display: flex;
+    width: 90px;
+    padding: 6px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: var(--green, #6BD425);
+}
+
+.cancel{
+    display: flex;
+    width: 90px;
+    padding: 6px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: var(--item-bg, #EFEFEF);
+}
+
+.delete{
+    display: flex;
+    width: 90px;
+    padding: 6px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: #FF4848;
+}
+
+.button-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
